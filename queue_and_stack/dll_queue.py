@@ -11,16 +11,15 @@ class Queue:
 
     def enqueue(self, value):
         # enqueue means we are adding to the back/tail of the DLL
-        # we need to increment/increase storage by 1
-        #self.storage.length += 1
+        # we need to increment/increase size by 1
+        self.size += 1
         # use add_to_tail() to add the value in a new node
         # to the back/tail of the DLL
         self.storage.add_to_tail(value)
 
     def dequeue(self):
         # dequeue means we are subtracting/removing from the front/head of the DLL
-        # we need to decrement/decrease storage by 1
-        #self.storage.length -= 1
+
         # if there is no node in storage
         if self.storage.head == None:
             # return None
