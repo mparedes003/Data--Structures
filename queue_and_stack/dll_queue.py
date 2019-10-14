@@ -19,15 +19,16 @@ class Queue:
 
     def dequeue(self):
         # dequeue means we are subtracting/removing from the front/head of the DLL
-
         # if there is no node in storage
         if self.storage.head == None:
             # return None
             return None
 
         else:
+            # we need to decrement/decrease size by 1
+            self.size -= 1
             # use remove_from_head() to delete the first node/the head
-            self.storage.remove_from_head()
+            return self.storage.remove_from_head()
 
     def len(self):
         # return the size of the queue

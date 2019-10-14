@@ -10,23 +10,25 @@ class Stack:
         self.storage = DoublyLinkedList()
 
     def push(self, value):
-        # push means we are adding to the back/tail of the DLL_Stack
+        # push means we are adding to the top/head of the DLL_Stack
         # we need to increment/increase size by 1
         self.size += 1
-        # use add_to_tail() to add the value in a new node
-        # to the back/tail of the DLL
-        self.storage.add_to_tail(value)
+        # use add_to_head() to add the value in a new node
+        # to the top/head of the DLL_Stack
+        self.storage.add_to_head(value)
 
     def pop(self):
-        # pop means we are subtracting/removing from the back/tail of the DLL_Stack
+        # pop means we are subtracting/removing from the top/head of the DLL_Stack
         # if there is no node in storage
-        if self.storage.tail == None:
+        if self.storage.head == None:
             # return None
             return None
 
         else:
-            # use remove_from_tail() to delete the last node/the tail
-            self.storage.remove_from_tail()
+            # we need to decrement/decrease size by 1
+            self.size -= 1
+            # use remove_from_head() to delete the last node added onto the DLL_Stack
+            return self.storage.remove_from_head()
 
     def len(self):
         # return the size of the queue
