@@ -10,6 +10,7 @@ class Stack:
         self.storage = DoublyLinkedList()
 
     def push(self, value):
+        # push means we are adding to the back/tail of the DLL_Stack
         # we need to increment/increase size by 1
         self.size += 1
         # use add_to_tail() to add the value in a new node
@@ -17,6 +18,7 @@ class Stack:
         self.storage.add_to_tail(value)
 
     def pop(self):
+        # pop means we are subtracting/removing from the back/tail of the DLL_Stack
         # if there is no node in storage
         if self.storage.tail == None:
             # return None
@@ -27,4 +29,5 @@ class Stack:
             self.storage.remove_from_tail()
 
     def len(self):
+        # return the size of the queue
         return self.size
