@@ -1,9 +1,3 @@
-import sys
-sys.path.append('../queue_and_stack')
-from dll_queue import Queue
-from dll_stack import Stack
-
-
 class BinarySearchTree:
     def __init__(self, value):
         self.value = value
@@ -12,21 +6,73 @@ class BinarySearchTree:
 
     # Insert the given value into the tree
     def insert(self, value):
-        pass
+        if value < self.value:
+            # go left
+            if not self.left:
+                self.left = BinarySearchTree(value)
+            else:
+                self.left.insert(value)
+
+        else:
+            # go right
+            if not self.right:
+                self.right = BinarySearchTree(value)
+            else:
+                self.right.insert(value)
 
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
-        pass
+      # if root equals target
+        if self.value == target:
+            # return True
+            return True
+    # Look at the left side
+        if self.left:
+            # if left side contains target
+            if self.left.contains(target):
+                # return True
+                return True
+    # Look at the right side
+        if self.right:
+            # if right side conatins target
+            if self.right.contains(target):
+                # return True
+                return True
+    # otherwise, return False
+        return False
+
+    '''Another option'''
+    '''def contains(self, target):
+        if self.value == target:
+            return True
+        if target < self.value:
+            # go left
+            if not self.left:
+                return False
+            else:
+                return self.left.contains(target)
+        else:        
+            if not self.right:
+                return False
+            else:
+                return self.right.contains(target)'''
 
     # Return the maximum value found in the tree
     def get_max(self):
-        pass
+        if not self.right:
+            return self.value
+        return self.right.get_max()
 
     # Call the function `cb` on the value of each node
     # You may use a recursive or iterative approach
     def for_each(self, cb):
-        pass
+        cb(self.value)
+
+        if self.left:
+            self.left.for_each(cb)
+        if self.right:
+            self.right.for_each(cb)
 
     # DAY 2 Project -----------------------
 
