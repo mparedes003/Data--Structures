@@ -6,18 +6,24 @@ class BinarySearchTree:
 
     # Insert the given value into the tree
     def insert(self, value):
+        # value is less than the root go left
         if value < self.value:
-            # go left
+            # if there is no value on the left side
             if not self.left:
+                # value becomes the root of the new subtree
                 self.left = BinarySearchTree(value)
             else:
+                # insert the the value
                 self.left.insert(value)
 
         else:
             # go right
+            # if there is no value on the right side
             if not self.right:
+                # value becomes the root of the new subtree
                 self.right = BinarySearchTree(value)
             else:
+                # insert the the value
                 self.right.insert(value)
 
     # Return True if the tree contains the value
@@ -60,17 +66,25 @@ class BinarySearchTree:
 
     # Return the maximum value found in the tree
     def get_max(self):
+        # if there is no node on the right
         if not self.right:
+            # return self.value
             return self.value
+        # just keep moving to the right for as long as you can
+        # return the node at the end of it all
         return self.right.get_max()
 
     # Call the function `cb` on the value of each node
     # You may use a recursive or iterative approach
     def for_each(self, cb):
+        # call the callbacl on self.value
         cb(self.value)
 
+        # use for_each(cb) on the left through recursion
         if self.left:
             self.left.for_each(cb)
+
+        # use for_each(cb) on the right through recursion
         if self.right:
             self.right.for_each(cb)
 
