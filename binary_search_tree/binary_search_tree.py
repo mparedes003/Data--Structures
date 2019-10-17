@@ -85,14 +85,14 @@ class BinarySearchTree:
         # start at node which is the root node
         # if you are at the root node
         if node:
+            # use in_order_print() on the left node by recursion
+            self.in_order_print(node.left)
+
             # print the value at that node
-            print(node.self.value)
+            print(node.value)
 
             # use in_order_print() on the left node by recursion
-            in_order_print(node.self.left)
-
-            # use in_order_print() on the left node by recursion
-            in_order_print(node.self.right)
+            self.in_order_print(node.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
