@@ -80,7 +80,7 @@ class BinarySearchTree:
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
         # This function will print in this order
-            # root->left->right until we have traversed the whole BST
+            # left->root->right until we have traversed the whole BST
 
         # start at node which is the root node
         # if you are at the root node
@@ -110,7 +110,20 @@ class BinarySearchTree:
 
     # Print In-order recursive DFT
     def pre_order_dft(self, node):
-        pass
+        # This function will print in this order
+            # root->left->right until we have traversed the whole BST
+
+        # start at node which is the root node
+        # if you are at the root node
+        if node:
+            # print the value at that node
+            print(node.value)
+
+            # use pre_order_dft() on the left node by recursion
+            self.pre_order_dft(node.left)
+
+            # use pre_order_dft() on the left node by recursion
+            self.pre_order_dft(node.right)
 
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
